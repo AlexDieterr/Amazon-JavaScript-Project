@@ -15,6 +15,16 @@ const products = [
     ]
   },
   {
+    id: 'id1',
+    image: "images/IMG_2385.JPG",
+    name: "Dumb cat for sale",
+    rating: {
+      stars: 1.0,
+      count: 92
+    },
+    priceCents: 99
+  },
+  {
     id: "15b6fc6f-327a-4ec4-896f-486349e85a3d",
     image: "images/products/intermediate-composite-basketball.jpg",
     name: "Intermediate Size Basketball",
