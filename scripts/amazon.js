@@ -1,4 +1,4 @@
-import {cart} from '../data/cart.js';
+import {cart, addToCart} from '../data/cart.js';
 import {products} from'../data/products.js';
 
 let productsHTML = '';
@@ -60,47 +60,33 @@ products.forEach((product) => {
 document.querySelector('.js-products-grid').
 innerHTML =productsHTML;
 
+function updateCartQuantity(){
+  let cartQuantity = 0;
+
+  cart.forEach((cartItem) => {
+    cartQuantity+=cartItem.quantity;
+  });
+  document.querySelector('.js-cart-quantity').
+  innerHTML = cartQuantity;
+}
+function addToCartMessage(button){
+  const productContainer = button.closest('.product-container');
+  const addMessage = productContainer.querySelector('.js-added-to-cart');
+  addMessage.classList.add('visible');
+    
+  setTimeout(() => {
+    addMessage.classList.remove('visible');
+  }, 2000);
+}
+
 document.querySelectorAll('.js-add-to-cart')
   .forEach((button) => {
     button.addEventListener('click',()=>{
 
       const productId = button.dataset.productId;
+      addToCart(productId);
+      updateCartQuantity();
+      addToCartMessage(button);
 
-      const quantitySelector = document.querySelector(`.js-quantity-selector-${productId}`);
-      let quantityValue = Number(quantitySelector.value);
-
-      let matchingItem;
-
-
-      cart.forEach((item) => {
-        if (productId === item.productId) {
-          matchingItem = item;
-        }
-      });
-
-      if (matchingItem){
-        matchingItem.quantity +=quantityValue;
-      }else{
-        cart.push({
-          productId: productId,
-          quantity: quantityValue
-      });
-      }
-
-      let cartQuantity = 0;
-
-      cart.forEach((item) => {
-        cartQuantity+=item.quantity;
-      });
-      document.querySelector('.js-cart-quantity').
-      innerHTML = cartQuantity;
-
-      const productContainer = button.closest('.product-container');
-      const addMessage = productContainer.querySelector('.js-added-to-cart');
-      addMessage.classList.add('visible');
-
-      setTimeout(() => {
-        addMessage.classList.remove('visible');
-      }, 2000);
     });
   });
