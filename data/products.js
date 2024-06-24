@@ -19,6 +19,7 @@ class Product {
   name;
   rating;
   priceCents;
+  keywords;
 
   constructor(productDetails){
     this.id = productDetails.id;
@@ -26,6 +27,7 @@ class Product {
     this.name = productDetails.name;
     this.rating = productDetails.rating;
     this.priceCents = productDetails.priceCents;
+    this.keywords = productDetails.keywords;
   }
 
   getStarsUrl(){
@@ -156,16 +158,6 @@ export const products = [
       "sports",
       "apparel"
     ]
-  },
-  {
-    id: 'id1',
-    image: "images/IMG_2385.JPG",
-    name: "Dumb cat for sale",
-    rating: {
-      stars: 1.0,
-      count: 92
-    },
-    priceCents: 99
   },
   {
     id: "15b6fc6f-327a-4ec4-896f-486349e85a3d",
