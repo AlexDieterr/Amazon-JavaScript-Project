@@ -20,6 +20,7 @@ async function loadPage() {
       productDetails = details;
     }
   });
+  //this is practice, ignore
 
   const today = dayjs();
   const orderTime = dayjs(order.orderTime);
