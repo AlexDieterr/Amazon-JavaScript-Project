@@ -136,4 +136,3 @@ function renderProductsGrid(){
     });
     ;
 }
-//pratice
