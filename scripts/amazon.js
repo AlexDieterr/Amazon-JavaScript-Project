@@ -1,5 +1,4 @@
-//i am testing
-//practice
+//version1
 import {
   cart, 
   addToCart,
